@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h1>Review a new Album</h1>
+
+
+<form action="/albums" method="POST">
+<input type="text" name="artist" placeholder="artist">
+<input type="text" name="image"  placeholder="image url">
+<button>Submit!</button>
+</form>
+
+<a href="/albums">Go back</a>
+
+<% include partials/footer %>

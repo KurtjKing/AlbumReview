@@ -1,0 +1,16 @@
+<% include partials/header %>
+
+<h1>albums</h1>
+
+<a href="/albums/new"> review an album</a>
+<% albums.forEach(function(albums){%>
+
+    <div>
+       <h4> <%= albums.artist%></h4>
+        <img src="<%= albums.image%>" alt="">
+    </div>  
+    <%}); %>
+
+<p>the albums will be here </p>
+
+<% include partials/footer %>

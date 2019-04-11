@@ -1,0 +1,25 @@
+{
+  "name": "AlbumReview",
+  "version": "1.0.0",
+  "description": "Album review",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KurtjKing/AlbumReview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KurtjKing/AlbumReview/issues"
+  },
+  "homepage": "https://github.com/KurtjKing/AlbumReview#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
