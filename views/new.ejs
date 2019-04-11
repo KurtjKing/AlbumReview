@@ -1,14 +1,26 @@
 <% include partials/header %>
+<div class="container">
+    <div class="row">
 
-<h1>Review a new Album</h1>
 
 
+<div style="width:30%; margin:25px auto;">
+        <h1 style="text-align:center;">Review</h1>
 <form action="/albums" method="POST">
-<input type="text" name="artist" placeholder="artist">
-<input type="text" name="image"  placeholder="image url">
-<button>Submit!</button>
+    <div class="input-group">
+<input class="form-control mb-2" type="text" name="artist" placeholder="artist">
+</div>
+<div class="input-group">
+<input class="form-control mb-2"type="text" name="image"  placeholder="image url">
+</div>
+<div class="input-group">
+<button class="btn btn-primary btn-lg btn-block">Submit!</button>
+</div>
 </form>
-
 <a href="/albums">Go back</a>
+</div>
+
+</div>
+</div>
 
 <% include partials/footer %>
