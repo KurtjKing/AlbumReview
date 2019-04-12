@@ -1,0 +1,36 @@
+<% include partials/header %>
+
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>REVIEWED ALBUMS</h1>
+            <p>
+                <a class=" btn btn-danger btn-lg" href="/albums/new"> review an album</a>
+
+            </p>
+        </div>
+    </header>
+
+
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+        <% albums.forEach(function(albums){%>
+
+        <div class="col-md-3">
+
+            <div class="card">
+                <img src="<%= albums.image%>" alt="">
+            </div>
+            <div class="card-footer">
+                <%= albums.artist%>
+            </div>
+            <p><a href="/albums/<%=albums._id%>" class="btn btn-primary">more info</a></p>
+        </div>
+        <%}); %>
+
+
+    </div>
+</div>
+
+<% include partials/footer %>
