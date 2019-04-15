@@ -1,0 +1,27 @@
+
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+
+
+
+<div style="width:30%; margin:25px auto;">
+        <h1 style="text-align:center;">Add a new comment to <%= review.artist%> </h1>
+<form action="/albums/<%=review._id%>/comments" method="POST">
+    <div class="input-group">
+<input class="form-control mb-2" type="text" name="comment[text]" placeholder="text">
+</div>
+<div class="input-group">
+<input class="form-control mb-2"type="text" name="comment[author]"  placeholder="author">
+</div>
+
+<button class="btn btn-primary btn-lg btn-block">Submit!</button>
+</div>
+</form>
+<a href="/albums">Go back</a>
+</div>
+
+</div>
+</div>
+
+<% include ../partials/footer %>

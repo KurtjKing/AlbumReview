@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+<div class="container"></div>
+
+<h1><%=album.artist%></h1>
+
+
+<img src="<%=album.image%>" alt="">
+
+<p><%=album.review%></p>
+
+<p><a class="btn btn-success" href="/albums/<%=album._id%>/comments/new">add a new comment</a></p>
+
+
+<% album.comments.forEach(function(comment){%>
+    <p> <strong><%= comment.author%></strong> - <%= comment.text%></p>
+<%})%>
+
+<% include ../partials/footer %>
