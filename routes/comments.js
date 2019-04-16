@@ -1,6 +1,6 @@
 var express =  require("express");
 var router = express.Router({mergeParams:true});
-var comment = require("../models/comment");
+var Comment = require("../models/comment");
 var review = require("../models/review");
 
 router.get("/new",isLoggedIn,function(req,res){
@@ -14,7 +14,7 @@ router.get("/new",isLoggedIn,function(req,res){
     });
 });
 
-router.post("/comments",isLoggedIn, function(req,res){
+router.post("/",isLoggedIn, function(req,res){
   review.findById(req.params.id, function(err,review){
     if(err){
         console.log("made it");
@@ -25,9 +25,14 @@ router.post("/comments",isLoggedIn, function(req,res){
             if(err){
                 console.log(err);
             }else{
+                comment.author.id = req.user._id;
+                comment.author.username = req.user.username;
+                console.log(req.user.username);
+                comment.save();
                 review.comments.push(comment);
                 review.save();
-                res.redirect("/albums/" + review._id);
+                console.log(comment);
+                res.redirect("/albums");//'+ review._id); COME BACK TO THIS  
             }
         });
         

@@ -15,17 +15,22 @@ router.get("/",function(req,res){
 });
 
 
-router.post("/",function(req,res){
+router.post("/",isLoggedIn,function(req,res){
     // res.send("you hit the post route");
     var artist = req.body.artist;
     var image = req.body.image;
     var rev   = req.body.review;
-    var newAlbum = {artist:artist, image:image, review:rev};
+    var author = {
+        id:req.user._id,
+        username:req.user.username
+    }
+    var newAlbum = {artist:artist, image:image, review:rev,author:author};
     
     review.create(newAlbum,function(err,newlyCreated){
         if(err){
             console.log(err);
         }else{
+            console.log(newlyCreated);
             res.redirect("/albums");
         }
     })
@@ -33,7 +38,7 @@ router.post("/",function(req,res){
    
 });
 
-router.get("/new",function(req,res){
+router.get("/new",isLoggedIn,function(req,res){
     res.render("albums/new.ejs");
 });
 
@@ -48,6 +53,12 @@ router.get("/:id",function(req,res){
         }
     });
 });
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");}
 
 
 module.exports = router;
